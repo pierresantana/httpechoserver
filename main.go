@@ -35,6 +35,7 @@ import (
 var port = flag.Int("p", 8000, "Port to listen on")
 
 func main() {
+	flag.Parse()
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		buf := make([]byte, r.ContentLength)
 		log.Printf("New %s request from %s", r.Method, r.RemoteAddr)
